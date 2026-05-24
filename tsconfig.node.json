@@ -1,24 +1,35 @@
 {
   "compilerOptions": {
+    // TypeScript 增量编译缓存文件，能让后续检查更快。
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // vite.config.ts 运行在 Node 环境，这里指定 Node 支持的 JS 版本。
     "target": "es2023",
     "lib": ["ES2023"],
     "module": "esnext",
+
+    // 让 TypeScript 认识 Node 里的类型，比如 path、process 等。
     "types": ["node"],
+
+    // 跳过依赖包内部类型检查，速度更快。
     "skipLibCheck": true,
 
-    /* Bundler mode */
+    /* Bundler mode：下面这些是 Vite/打包工具常用的 TypeScript 配置。 */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
+
+    // 只做类型检查，不真正输出 JS 文件。
     "noEmit": true,
 
-    /* Linting */
+    /* Linting：帮助发现没用到的变量、参数等问题。 */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
+
+  // 这份配置只负责检查 vite.config.ts。
   "include": ["vite.config.ts"]
 }

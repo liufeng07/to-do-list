@@ -1,7 +1,12 @@
 {
+  // tsconfig.json 是 TypeScript 的总入口配置。
+  // 这里不直接写具体规则，而是引用 app 和 node 两份配置。
   "files": [],
   "references": [
+    // 前端业务代码配置，比如 src/App.vue、src/main.ts。
     { "path": "./tsconfig.app.json" },
+
+    // Node 环境配置，比如 vite.config.ts。
     { "path": "./tsconfig.node.json" }
   ]
 }
